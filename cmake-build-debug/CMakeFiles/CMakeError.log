@@ -1,0 +1,24 @@
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: /cygdrive/c/Users/Andrew/Documents/Hannah/EE 312/Spring 2021/Project8_stack/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_5232f/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_5232f.dir/build.make CMakeFiles/cmTC_5232f.dir/build
+gmake[1]: Entering directory 'C:/Users/Andrew/Documents/Hannah/EE 312/Spring 2021/Project8_stack/cmake-build-debug/CMakeFiles/CMakeTmp'
+gmake[1]: *** No rule to make target '/cygdrive/c/Users/Andrew/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/share/cmake-3.17.5/Modules/CMakeCCompilerABI.c', needed by 'CMakeFiles/cmTC_5232f.dir/CMakeCCompilerABI.c.o'.  Stop.
+gmake[1]: Leaving directory 'C:/Users/Andrew/Documents/Hannah/EE 312/Spring 2021/Project8_stack/cmake-build-debug/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:141: cmTC_5232f/fast] Error 2
+
+
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: /cygdrive/c/Users/Andrew/Documents/Hannah/EE 312/Spring 2021/Project8_stack/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_f9f89/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_f9f89.dir/build.make CMakeFiles/cmTC_f9f89.dir/build
+gmake[1]: Entering directory 'C:/Users/Andrew/Documents/Hannah/EE 312/Spring 2021/Project8_stack/cmake-build-debug/CMakeFiles/CMakeTmp'
+gmake[1]: *** No rule to make target '/cygdrive/c/Users/Andrew/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/share/cmake-3.17.5/Modules/CMakeCXXCompilerABI.cpp', needed by 'CMakeFiles/cmTC_f9f89.dir/CMakeCXXCompilerABI.cpp.o'.  Stop.
+gmake[1]: Leaving directory 'C:/Users/Andrew/Documents/Hannah/EE 312/Spring 2021/Project8_stack/cmake-build-debug/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:141: cmTC_f9f89/fast] Error 2
+
+
+
+
