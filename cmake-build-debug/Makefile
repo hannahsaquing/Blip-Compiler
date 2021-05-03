@@ -143,6 +143,33 @@ Project8_stack/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project8_stack.dir/build.make CMakeFiles/Project8_stack.dir/build
 .PHONY : Project8_stack/fast
 
+input.o: input.cpp.o
+
+.PHONY : input.o
+
+# target to build an object file
+input.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project8_stack.dir/build.make CMakeFiles/Project8_stack.dir/input.cpp.o
+.PHONY : input.cpp.o
+
+input.i: input.cpp.i
+
+.PHONY : input.i
+
+# target to preprocess a source file
+input.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project8_stack.dir/build.make CMakeFiles/Project8_stack.dir/input.cpp.i
+.PHONY : input.cpp.i
+
+input.s: input.cpp.s
+
+.PHONY : input.s
+
+# target to generate assembly for a file
+input.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project8_stack.dir/build.make CMakeFiles/Project8_stack.dir/input.cpp.s
+.PHONY : input.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -170,6 +197,33 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project8_stack.dir/build.make CMakeFiles/Project8_stack.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+stack.o: stack.cpp.o
+
+.PHONY : stack.o
+
+# target to build an object file
+stack.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project8_stack.dir/build.make CMakeFiles/Project8_stack.dir/stack.cpp.o
+.PHONY : stack.cpp.o
+
+stack.i: stack.cpp.i
+
+.PHONY : stack.i
+
+# target to preprocess a source file
+stack.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project8_stack.dir/build.make CMakeFiles/Project8_stack.dir/stack.cpp.i
+.PHONY : stack.cpp.i
+
+stack.s: stack.cpp.s
+
+.PHONY : stack.s
+
+# target to generate assembly for a file
+stack.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project8_stack.dir/build.make CMakeFiles/Project8_stack.dir/stack.cpp.s
+.PHONY : stack.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -179,9 +233,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Project8_stack"
+	@echo "... input.o"
+	@echo "... input.i"
+	@echo "... input.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... stack.o"
+	@echo "... stack.i"
+	@echo "... stack.s"
 .PHONY : help
 
 
