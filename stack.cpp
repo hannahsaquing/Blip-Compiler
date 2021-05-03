@@ -77,7 +77,7 @@ int cleanStack() {
     return parsedValue;
 }
 
-int parsePolish() {
+int evaluatePolishNotation() {
     read_next_token();
     string holder = next_token();
     while (next_token_type != END) {
@@ -92,7 +92,7 @@ int parsePolish() {
             args.push(token_number_value);
             stackToken++;
         }
-        parsePolish();
+        evaluatePolishNotation();
     }
     if (args.empty() && ops.empty()) {
         return cleanStack();
@@ -121,7 +121,7 @@ void var(map<string,int> &map) {
     }
     read_next_token();
     string varName = next_token();
-    int varValue = parsePolish();
+    int varValue = evaluatePolishNotation();
     // check if it's already in the map
     bool inMap = map.count(varName);
     if (inMap) {
@@ -143,7 +143,7 @@ void set(map<string,int> &map) {
     }
     read_next_token();
     string varName = next_token();
-    int varValue = parsePolish();
+    int varValue = evaluatePolishNotation();
     bool inMap = map.count(varName);
     if (!inMap) {
         string str1 = "variable ";
