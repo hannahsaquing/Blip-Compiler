@@ -2,8 +2,11 @@
 #include <map>
 #include <string>
 #include "Parse.h"
+#include <iostream>
 
 using namespace std;
+
+map<string, int> variables;
 
 void readInstruction() {
     const char* instruction;
@@ -13,15 +16,23 @@ void readInstruction() {
      */
 };
 
+string stringContents() {
+    while (peek_next_token() != "//") {
+        skip_line();
+    }
+    read_next_token();
+    return next_token();
+}
+
 void text() {
-    /*
-     * print text
-     */
+    read_next_token();
+    string print = next_token();
+    cout << print;
 }
 
 void output() {
     /*
-     * calculate output
+     * use stack to control output
      */
 }
 
@@ -37,13 +48,27 @@ void set() {
      */
 }
 
-void tokenParser() {
+void parseNext() {
     read_next_token();
-    if (next_token_type == NAME) {
-        readInstruction();
+    if (next_token_type == END) {
+        return;
     }
-    else if (next_token_type == NUMBER) {
-
+    bool execute = (next_token_type == NAME) || (next_token_type == SYMBOL);
+    if (execute) {
+        string action = next_token();
+        if (action == "text") {
+            text();
+        }
+        if (action == "output") {
+            output();
+        }
+        if (action == "var") {
+            var();
+        }
+        if (action == "set") {
+            set();
+        }
+        parseNext();
     }
 }
 
