@@ -1,23 +1,49 @@
 #include <stack>
 #include <map>
 #include <string>
+#include "Parse.h"
 
-void instructionReader() {
+using namespace std;
+
+void readInstruction() {
+    const char* instruction;
+    instruction = next_token();
     /*
-     * interpret the instruction that will need to be used
+     * TO DO: read the char to determine which instruction it needs to use
+     */
+};
+
+void text() {
+    /*
+     * print text
      */
 }
 
-void addSymbolTable() {
+void output() {
     /*
-     * add the variable to the symbol table
+     * calculate output
      */
 }
 
-void updateSymbolTable() {
+void var() {
     /*
-     * update existing variable to the symbol table
+     * initialize new variable
      */
 }
 
-void 
+void set() {
+    /*
+     * update existing variable
+     */
+}
+
+void tokenParser() {
+    read_next_token();
+    if (next_token_type == NAME) {
+        readInstruction();
+    }
+    else if (next_token_type == NUMBER) {
+
+    }
+}
+
