@@ -8,14 +8,6 @@ using namespace std;
 
 map<string, int> variables;
 
-void readInstruction() {
-    const char* instruction;
-    instruction = next_token();
-    /*
-     * TO DO: read the char to determine which instruction it needs to use
-     */
-};
-
 string stringContents() {
     while (peek_next_token() != "//") {
         skip_line();
@@ -23,6 +15,12 @@ string stringContents() {
     read_next_token();
     return next_token();
 }
+
+int calculate() {
+    /*
+     * implement stack to decipher value of expressions
+     */
+};
 
 void text() {
     read_next_token();
@@ -36,16 +34,35 @@ void output() {
      */
 }
 
-void var() {
-    /*
-     * initialize new variable
-     */
+void var(map<string,int> &map) {
+    while (peek_next_token() != "//") {
+        skip_line();
+    }
+    read_next_token();
+    string varName = next_token();
+    int value = calculate;
+    // check if it's already in the map
+    bool inMap = map.count(varName);
+    if (inMap) {
+        string str1 = "variable ";
+        string str2 = " incorrectly";
+        string str3 =  " re-initialized";
+        cout << str1 << varName << str2 << str3 << endl;
+        // update it anyways
+        map[varName] = value;
+    }
+    else {
+        map.emplace(varName, value);
+    }
 }
 
 void set() {
-    /*
-     * update existing variable
-     */
+    while (peek_next_token() != "//") {
+        skip_line();
+    }
+    read_next_token();
+    string varName = next_token();
+    int value
 }
 
 void parseNext() {
@@ -63,7 +80,7 @@ void parseNext() {
             output();
         }
         if (action == "var") {
-            var();
+            var(variables);
         }
         if (action == "set") {
             set();
