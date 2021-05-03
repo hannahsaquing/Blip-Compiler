@@ -3,10 +3,11 @@
 #include <string>
 #include "Parse.h"
 #include <iostream>
-
 using namespace std;
 
 map<string, int> variables;
+stack <int> values;
+stack <string> ops;
 
 string stringContents() {
     while (peek_next_token() != "//") {
@@ -20,6 +21,7 @@ int calculate() {
     /*
      * implement stack to decipher value of expressions
      */
+    return 0;
 };
 
 void text() {
@@ -40,7 +42,7 @@ void var(map<string,int> &map) {
     }
     read_next_token();
     string varName = next_token();
-    int value = calculate;
+    int varValue = calculate();
     // check if it's already in the map
     bool inMap = map.count(varName);
     if (inMap) {
@@ -49,20 +51,31 @@ void var(map<string,int> &map) {
         string str3 =  " re-initialized";
         cout << str1 << varName << str2 << str3 << endl;
         // update it anyways
-        map[varName] = value;
+        map[varName] = varValue;
     }
     else {
-        map.emplace(varName, value);
+        map.emplace(varName, varValue);
     }
 }
 
-void set() {
+void set(map<string,int> &map) {
     while (peek_next_token() != "//") {
         skip_line();
     }
     read_next_token();
     string varName = next_token();
-    int value
+    int varValue = calculate();
+    bool inMap = map.count(varName);
+    if (!inMap) {
+        string str1 = "variable ";
+        string str2 = " not declared";
+        cout << str1 << varName << str2 << endl;
+        // create the variable anyways
+        map.emplace(varName, varValue);
+    }
+    else {
+        map[varName] = varValue;
+    }
 }
 
 void parseNext() {
@@ -83,7 +96,7 @@ void parseNext() {
             var(variables);
         }
         if (action == "set") {
-            set();
+            set(variables);
         }
         parseNext();
     }
