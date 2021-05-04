@@ -40,7 +40,7 @@ int evaluatePolishNotation(map<string, int> &variables) {
             return (!evaluatePolishNotation(variables));
         }
         if (thingy == "~") {
-            return (-1 * evaluatePolishNotation(variables));
+            return (-1* evaluatePolishNotation(variables));
         }
     }
     if (next_token_type == SYMBOL) {

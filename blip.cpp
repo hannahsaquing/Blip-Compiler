@@ -60,7 +60,11 @@ void text() {
 void output(map<string,int> &map) {
     string peek = peek_next_token();
     int print = (variables.count(peek)) ? variables.at(peek):evaluatePolishNotation(variables);
-    cout << print;
+    if (print < 0) { // is there a better way to do this
+        print = -1 * print;
+        cout << "~ " << print;
+    }
+    else {cout << print;}
 }
 
 void run() {
