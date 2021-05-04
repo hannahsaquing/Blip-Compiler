@@ -11,7 +11,4 @@ int main() {
     set_input("test1.blip");
     run();
 
-    cout   <<   endl   <<   endl   << "Test2"<<   endl;
-    set_input("test2.blip");
-    run();
 }

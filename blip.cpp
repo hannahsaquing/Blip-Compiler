@@ -1,8 +1,9 @@
 #include <stack>
 #include <map>
 #include <string>
-#include "Parse.h"
 #include <iostream>
+#include "blip.h"
+#include "Parse.h"
 #include "stack.h"
 using namespace std;
 
@@ -65,23 +66,27 @@ void run() {
     if (next_token_type == END) {
         return;
     }
+    bool keepGoing = next_token_type != END;
     bool execute = (next_token_type == NAME) || (next_token_type == SYMBOL);
-    while (execute) {
-        string action = next_token();
-        if (action == "var") {
-            var(variables);
+    while (keepGoing) {
+        if (execute) {
+            string action = next_token();
+            if (action == "var") {
+                var(variables);
+            }
+            if (action == "set") {
+                set(variables);
+            }
+            if (action == "text") {
+                text();
+            }
+            if (action == "output") {
+                output();
+            }
+            read_next_token();
+            execute = (next_token_type != END);
         }
-        if (action == "set") {
-            set(variables);
-        }
-        if (action == "text") {
-            text();
-        }
-        if (action == "output") {
-            output();
-        }
-        execute = (next_token_type == NAME) || (next_token_type == SYMBOL) || (next_token_type != END);
         read_next_token();
+        keepGoing = (next_token_type != END);
     }
 }
-

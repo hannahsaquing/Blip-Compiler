@@ -59,6 +59,18 @@ int command (string op, int arg1, int arg2) {
     return result;
 }
 
+bool isUnary(string input) {
+    return (input == "!") || (input == "~");
+}
+
+void singleStackInteraction() {
+    int arg = args.top();
+    string op = ops.top();
+    ops.pop();
+    result = command(op, arg, 0);
+    args.push(result);
+}
+
 void stackInteractions() {
     int arg2 = args.top();
     args.pop();
@@ -80,6 +92,10 @@ int evaluatePolishNotation() {
     read_next_token();
     string holder = next_token();
     while (next_token_type != END) {
+        bool twoOperands = (args.size() == 2);
+        if (isUnary(ops.top())) {
+            singleStackInteraction();
+        }
         if (args.size() == 2) {
             stackInteractions();
         }
