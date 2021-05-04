@@ -73,14 +73,23 @@ void singleStackInteraction() {
 }
 
 void stackInteractions() {
-    int arg2 = args.top();
-    args.pop();
-    int arg1 = args.top();
-    args.pop();
-    string op = ops.top();
-    ops.pop();
-    result = command(op, arg1, arg2);
-    args.push(result);
+    if (args.size() == 2) {
+        int arg2 = args.top();
+        args.pop();
+        int arg1 = args.top();
+        args.pop();
+        string op = ops.top();
+        ops.pop();
+        result = command(op, arg1, arg2);
+        args.push(result);
+    }
+    if (args.size() == 1) {
+        int arg1 = args.top();
+        args.pop();
+        string op = ops.top();
+        ops.pop();
+        result = command(op, arg1, 0);
+    }
 }
 
 int cleanStack() {
@@ -93,17 +102,22 @@ int evaluatePolishNotation() {
     read_next_token();
     string holder = next_token();
     while (next_token_type != END) {
-        if (isUnary(ops.top())) {
-            singleStackInteraction();
-        }
-        if (args.size() == 2) {
-            stackInteractions();
-        }
-        else if (next_token_type == SYMBOL) {
+        if (next_token_type == SYMBOL) {
             ops.push(holder);
         }
         else if (next_token_type == NUMBER) {
+            if (ops.empty()) {
+                return token_number_value;
+            }
             args.push(token_number_value);
+        }
+        if (!(ops.empty())) {
+            if (isUnary(ops.top())) {
+                singleStackInteraction();
+            }
+        }
+        else if (args.size() == 2) {
+            stackInteractions();
         }
         evaluatePolishNotation();
     }
