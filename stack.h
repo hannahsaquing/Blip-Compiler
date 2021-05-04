@@ -7,10 +7,6 @@ using namespace std;
 
 int symbolChecker (string op, int arg1, int arg2);
 
-int unary (string op, int arg);
-
-void stackInteractions();
-
-int cleanStack();
+bool isUnary(string input);
 
 int evaluatePolishNotation(map<string,int> &map);

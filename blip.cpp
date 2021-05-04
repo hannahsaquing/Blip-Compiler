@@ -1,26 +1,23 @@
-#include <stack>
 #include <map>
 #include <string>
 #include <iostream>
 #include "blip.h"
-#include "Parse.h"
 #include "stack.h"
 using namespace std;
 
 map<string, int> variables;
 
-string eliminateComments() {
+void eliminateComments() {
     string peek = peek_next_token();
     while (peek == "//") {
         skip_line();
     }
-    read_next_token();
-    string varName = next_token();
-    return varName;
 }
 
 void var(map<string,int> &map) {
-    string varName = eliminateComments();
+    eliminateComments();
+    read_next_token();
+    string varName = next_token();
     int varValue = evaluatePolishNotation(variables);
     // check if it's already in the map
     bool inMap = map.count(varName);
@@ -37,7 +34,9 @@ void var(map<string,int> &map) {
 }
 
 void set(map<string,int> &map) {
-    string varName = eliminateComments();
+    eliminateComments();
+    read_next_token();
+    string varName = next_token();
     int varValue = evaluatePolishNotation(variables);
     bool inMap = map.count(varName);
     if (!inMap) {
