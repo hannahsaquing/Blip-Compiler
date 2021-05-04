@@ -11,16 +11,16 @@ map<string, int> variables;
 
 string eliminateComments() {
     string peek = peek_next_token();
-    while (peek != "//") {
+    while (peek == "//") {
         skip_line();
     }
     read_next_token();
-    return next_token();
+    string varName = next_token();
+    return varName;
 }
 
 void var(map<string,int> &map) {
     string varName = eliminateComments();
-    read_next_token();
     int varValue = evaluatePolishNotation(variables);
     // check if it's already in the map
     bool inMap = map.count(varName);
@@ -38,7 +38,6 @@ void var(map<string,int> &map) {
 
 void set(map<string,int> &map) {
     string varName = eliminateComments();
-    read_next_token();
     int varValue = evaluatePolishNotation(variables);
     bool inMap = map.count(varName);
     if (!inMap) {
