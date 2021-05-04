@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/cygdrive/c/Users/Andrew/Documents/Hannah/EE 312/Spring 2021/Project8_stack/blip.cpp">
+			<Option target="Project8_stack"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Andrew/Documents/Hannah/EE 312/Spring 2021/Project8_stack/blip.h">
+			<Option target="Project8_stack"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/Users/Andrew/Documents/Hannah/EE 312/Spring 2021/Project8_stack/input.cpp">
 			<Option target="Project8_stack"/>
 		</Unit>

@@ -143,6 +143,33 @@ Project8_stack/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project8_stack.dir/build.make CMakeFiles/Project8_stack.dir/build
 .PHONY : Project8_stack/fast
 
+blip.o: blip.cpp.o
+
+.PHONY : blip.o
+
+# target to build an object file
+blip.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project8_stack.dir/build.make CMakeFiles/Project8_stack.dir/blip.cpp.o
+.PHONY : blip.cpp.o
+
+blip.i: blip.cpp.i
+
+.PHONY : blip.i
+
+# target to preprocess a source file
+blip.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project8_stack.dir/build.make CMakeFiles/Project8_stack.dir/blip.cpp.i
+.PHONY : blip.cpp.i
+
+blip.s: blip.cpp.s
+
+.PHONY : blip.s
+
+# target to generate assembly for a file
+blip.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project8_stack.dir/build.make CMakeFiles/Project8_stack.dir/blip.cpp.s
+.PHONY : blip.cpp.s
+
 input.o: input.cpp.o
 
 .PHONY : input.o
@@ -233,6 +260,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Project8_stack"
+	@echo "... blip.o"
+	@echo "... blip.i"
+	@echo "... blip.s"
 	@echo "... input.o"
 	@echo "... input.i"
 	@echo "... input.s"

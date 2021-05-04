@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Project8_stack.dir/blip.cpp.o"
   "CMakeFiles/Project8_stack.dir/input.cpp.o"
   "CMakeFiles/Project8_stack.dir/main.cpp.o"
   "CMakeFiles/Project8_stack.dir/stack.cpp.o"
