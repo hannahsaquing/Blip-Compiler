@@ -62,6 +62,7 @@ void output() {
 }
 
 void run() {
+    // doesn't run all the way
     read_next_token();
     if (next_token_type == END) {
         return;
