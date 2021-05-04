@@ -56,31 +56,32 @@ void text() {
 }
 
 void output() {
-    /*
-     * use stack to control output
-     */
+    int print = evaluatePolishNotation();
+    cout << print;
 }
 
-void parseNext() {
+void run() {
     read_next_token();
     if (next_token_type == END) {
         return;
     }
     bool execute = (next_token_type == NAME) || (next_token_type == SYMBOL);
-    if (execute) {
+    while (execute) {
         string action = next_token();
-        if (action == "text") {
-            text();
-        }
-        if (action == "output") {
-            output();
-        }
         if (action == "var") {
             var(variables);
         }
         if (action == "set") {
             set(variables);
         }
-        parseNext();
+        if (action == "text") {
+            text();
+        }
+        if (action == "output") {
+            output();
+        }
+        execute = (next_token_type == NAME) || (next_token_type == SYMBOL) || (next_token_type != END);
+        read_next_token();
     }
 }
+
