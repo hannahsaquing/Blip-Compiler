@@ -10,9 +10,6 @@ using namespace std;
 map<string, int> variables;
 
 void var(map<string,int> &map) {
-    while (peek_next_token() != "//") {
-        skip_line();
-    }
     read_next_token();
     string varName = next_token();
     int varValue = evaluatePolishNotation();
@@ -31,7 +28,8 @@ void var(map<string,int> &map) {
 }
 
 void set(map<string,int> &map) {
-    while (peek_next_token() != "//") {
+    string peek = peek_next_token();
+    while (peek != "//") {
         skip_line();
     }
     read_next_token();
@@ -57,7 +55,8 @@ void text() {
 }
 
 void output() {
-    int print = evaluatePolishNotation();
+    string peek = peek_next_token();
+    int print = (variables.count(peek)) ? variables.at(peek):evaluatePolishNotation();
     cout << print;
 }
 

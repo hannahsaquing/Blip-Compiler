@@ -100,11 +100,12 @@ int evaluatePolishNotation() {
         return token_number_value;
     }
     if (isUnary(next_token())) {
-        if (next_token() == "!") {
+        string thingy = next_token(); // when i stuck next_token under, it didn't work. now it works..
+        if (thingy == "!") {
             return (!evaluatePolishNotation());
         }
-        if (next_token() == "~") {
-            return (~evaluatePolishNotation());
+        if (thingy == "~") {
+            return (-1 * evaluatePolishNotation());
         }
     }
     if (next_token_type == SYMBOL) {
