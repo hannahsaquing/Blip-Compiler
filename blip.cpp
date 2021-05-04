@@ -63,6 +63,7 @@ void output(map<string,int> &map) {
     if (print < 0) { // is there a better way to do this
         print = -1 * print;
         cout << "~ " << print;
+        return;
     }
     else {cout << print;}
 }

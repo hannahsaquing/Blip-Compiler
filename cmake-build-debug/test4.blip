@@ -1,3 +1,68 @@
-output 3 text "\n"
-// text "hello world"
+var x 42
+text "output x -- " output x text \n
+set x + x 1
+text "after increment, output x -- " output x text \n
+text "output ~ x -- " output ~ x text \n
+text "Hello World\n"
+
+output * + % 10 5 10 + * 5 10 + 1 2  text " -- should be 530 \n"
+output * + + + 5 3 * 5 10 10 + 2 3 text " -- should be 340 \n"
+
+var x 3
+var y 4
+
+set x + x y
+output x text "  -- should be 7 \n"
+
+set x - x y
+output x text "  -- should be 3 \n"
+
+set x * x y
+output x text "  -- should be 12 \n"
+
+set x / x y
+output x text "  -- should be 3 \n"
+
+set x % x y
+output x text "  -- should be 3 \n"
+
+set x && x y
+output x text "  -- should be 1 \n"
+
+set x || x y
+output x text "  -- should be 1 \n"
+
+set x < x y
+output x text "  -- should be 1 \n"
+
+set x > x y
+output x text "  -- should be 0 \n"
+
+set x == x y
+output x text "  -- should be 0 \n"
+
+set x != x y
+output x text "  -- should be 1 \n"
+
+set x <= x y
+output x text "  -- should be 1 \n"
+
+set x >= x y
+output x text "  -- should be 0 \n"
+
+set x ! x
+output x text "  -- should be 1 \n"
+
+set x ~ x
+output x text "  -- should be ~ 1 \n"
+
+set x + && x y 3
+output x text "  -- should be 4 \n"
+
+set x + && x 0 y
+output x text "  -- should be 4 \n"
+
+
+
+
 
