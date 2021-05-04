@@ -72,22 +72,24 @@ void run() {
     while (keepGoing) {
         if (execute) {
             string action = next_token();
-            if (action == "var") {
+            if (action == "//") {
+                skip_line();
+            }
+            else if (action == "var") {
                 var(variables);
             }
-            if (action == "set") {
+            else if (action == "set") {
                 set(variables);
             }
-            if (action == "text") {
+            else if (action == "text") {
                 text();
             }
-            if (action == "output") {
+            else if (action == "output") {
                 output();
             }
-            read_next_token();
-            execute = (next_token_type != END);
         }
         read_next_token();
         keepGoing = (next_token_type != END);
+        execute = (next_token_type == NAME) || (next_token_type == SYMBOL);
     }
 }
