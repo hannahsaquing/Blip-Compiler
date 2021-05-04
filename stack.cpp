@@ -65,6 +65,7 @@ bool isUnary(string input) {
 
 void singleStackInteraction() {
     int arg = args.top();
+    args.pop();
     string op = ops.top();
     ops.pop();
     result = command(op, arg, 0);
@@ -92,7 +93,6 @@ int evaluatePolishNotation() {
     read_next_token();
     string holder = next_token();
     while (next_token_type != END) {
-        bool twoOperands = (args.size() == 2);
         if (isUnary(ops.top())) {
             singleStackInteraction();
         }
