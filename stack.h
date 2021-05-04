@@ -13,4 +13,4 @@ void stackInteractions();
 
 int cleanStack();
 
-int evaluatePolishNotation();
+int evaluatePolishNotation(map<string,int> &map);

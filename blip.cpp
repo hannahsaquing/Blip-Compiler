@@ -9,10 +9,19 @@ using namespace std;
 
 map<string, int> variables;
 
-void var(map<string,int> &map) {
+string eliminateComments() {
+    string peek = peek_next_token();
+    while (peek != "//") {
+        skip_line();
+    }
     read_next_token();
-    string varName = next_token();
-    int varValue = evaluatePolishNotation();
+    return next_token();
+}
+
+void var(map<string,int> &map) {
+    string varName = eliminateComments();
+    read_next_token();
+    int varValue = evaluatePolishNotation(variables);
     // check if it's already in the map
     bool inMap = map.count(varName);
     if (inMap) {
@@ -28,13 +37,9 @@ void var(map<string,int> &map) {
 }
 
 void set(map<string,int> &map) {
-    string peek = peek_next_token();
-    while (peek != "//") {
-        skip_line();
-    }
+    string varName = eliminateComments();
     read_next_token();
-    string varName = next_token();
-    int varValue = evaluatePolishNotation();
+    int varValue = evaluatePolishNotation(variables);
     bool inMap = map.count(varName);
     if (!inMap) {
         string str1 = "variable ";
@@ -54,12 +59,11 @@ void text() {
     cout << print;
 }
 
-void output() {
+void output(map<string,int> &map) {
     string peek = peek_next_token();
-    int print = (variables.count(peek)) ? variables.at(peek):evaluatePolishNotation();
+    int print = (variables.count(peek)) ? variables.at(peek):evaluatePolishNotation(variables);
     cout << print;
 }
-
 
 void run() {
     // doesn't run all the way
@@ -85,7 +89,7 @@ void run() {
                 text();
             }
             else if (action == "output") {
-                output();
+                output(variables);
             }
         }
         read_next_token();
