@@ -1,8 +1,8 @@
 #include <stack>
 #include <map>
 #include <string>
-#include "Parse.h"
 #include <iostream>
+#include "Parse.h"
 #include "stack.h"
 using namespace std;
 
