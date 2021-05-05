@@ -58,8 +58,7 @@ void set(map<string,int> &map) {
 
 void text() {
     read_next_token();
-    string print = next_token();
-    cout << print;
+    cout << next_token();
 }
 
 void output(map<string,int> &map) {
