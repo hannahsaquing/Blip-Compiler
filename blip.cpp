@@ -66,6 +66,7 @@ void output(map<string,int> &map) {
         return;
     }*/
     //else
+    //read_next_token();
     cout << print;
 }
 
