@@ -35,7 +35,7 @@ int evaluatePolishNotation(map<string, int> &variables) {
         return variables.at(varName);
     }
     if (isUnary(next_token())) {
-        string thingy = next_token(); // when i stuck next_token under, it didn't work. now it works..
+        string thingy = next_token();
         if (thingy == "!") {
             return (!evaluatePolishNotation(variables));
         }
