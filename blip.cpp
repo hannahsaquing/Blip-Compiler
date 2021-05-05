@@ -129,10 +129,10 @@ void output(map<string,int> &map) {
 
 void run() {
     read_next_token();
-    if (next_token_type == END) {
+    bool keepGoing = next_token_type != END;
+    if (!keepGoing) {
         return;
     }
-    bool keepGoing = next_token_type != END;
     bool execute = (next_token_type == NAME) || (next_token_type == SYMBOL);
     while (keepGoing) {
         if (execute) {
