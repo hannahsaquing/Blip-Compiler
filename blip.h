@@ -16,3 +16,8 @@ void output();
 
 void run();
 
+struct variable {
+    int value;
+    string name;
+} ;
+

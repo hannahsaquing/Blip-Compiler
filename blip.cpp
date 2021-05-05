@@ -15,39 +15,44 @@ void eliminateComments() {
 }
 
 void var(map<string,int> &map) {
-    eliminateComments();
+    eliminateComments(); // skip whitespace until token is found
     read_next_token();
-    string varName = next_token();
-    int varValue = evaluatePolishNotation(variables);
+    variable blippyVar;
+    blippyVar.name = next_token();
+    blippyVar.value = evaluatePolishNotation(variables);
+
     // check if it's already in the map
-    bool inMap = map.count(varName);
+    bool inMap = map.count(blippyVar.name);
     if (inMap) {
         string str1 = "variable ";
         string str2 = " incorrectly re-initialized";
-        cout << str1 << varName << str2 << endl;
+        cout << str1 << blippyVar.name << str2 << endl;
+
         // update it anyways
-        map[varName] = varValue;
+        map[blippyVar.name] = blippyVar.value;
     }
     else {
-        map.emplace(varName, varValue);
+        map.emplace(blippyVar.name, blippyVar.value);
     }
 }
 
 void set(map<string,int> &map) {
     eliminateComments();
     read_next_token();
-    string varName = next_token();
-    int varValue = evaluatePolishNotation(variables);
-    bool inMap = map.count(varName);
+    variable blippyVar;
+    blippyVar.name = next_token();
+    blippyVar.value = evaluatePolishNotation(variables);
+    bool inMap = map.count(blippyVar.name);
     if (!inMap) {
         string str1 = "variable ";
         string str2 = " not declared";
-        cout << str1 << varName << str2 << endl;
+        cout << str1 << blippyVar.name << str2 << endl;
+
         // create the variable anyways
-        map.emplace(varName, varValue);
+        map.emplace(blippyVar.name, blippyVar.value);
     }
     else {
-        map[varName] = varValue;
+        map[blippyVar.name] = blippyVar.value;
     }
 }
 
@@ -60,18 +65,10 @@ void text() {
 void output(map<string,int> &map) {
     string peek = peek_next_token();
     int print = (variables.count(peek)) ? variables.at(peek):evaluatePolishNotation(variables);
-    /*if (print < 0) { // is there a better way to do this
-        print = -1 * print;
-        cout << "~ " << print;
-        return;
-    }*/
-    //else
-    //read_next_token();
     cout << print;
 }
 
 void run() {
-    // doesn't run all the way
     read_next_token();
     if (next_token_type == END) {
         return;
