@@ -1,10 +1,9 @@
-#include <stack>
 #include <string>
 #include "Parse.h"
 #include "stack.h"
 using namespace std;
 
-int symbolChecker (string op, int arg1, int arg2) {
+int symbolChecker(string op, int arg1, int arg2) {
     if (op == "+") {return (arg1 + arg2);}
     if (op == "-") {return (arg1 - arg2);}
     if (op == "*") {return (arg1 * arg2);}
